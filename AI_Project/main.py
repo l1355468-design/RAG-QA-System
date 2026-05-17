@@ -4,7 +4,7 @@ import os
 
 sys.path.append(r"C:\AI_Project")
 
-from taskD_rag_generator import RAGGenerator
+from taskD_rag_generator_mock import RAGGenerator
 import gradio as gr
 
 def main():
@@ -13,10 +13,9 @@ def main():
     print("="*50)
     
     data_dir = r"C:\AI_Project\data\processed"
-    api_key = "sk-ca36500a121148719af2ec014993c5ce"
-    base_url = "https://ws-tuzy4hqctx3z1wvz.cn-beijing.maas.aliyuncs.com/compatible-mode/v1"
+
     
-    rag = RAGGenerator(data_dir, api_key, base_url)
+    rag = RAGGenerator(data_dir)
     
     def chat(message, history):
         result = rag.generate(message, top_k=3, alpha=0.5)
